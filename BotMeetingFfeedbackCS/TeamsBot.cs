@@ -9,6 +9,13 @@ namespace BotMeetingFfeedbackCS
     /// </summary>
     public class TeamsBot : TeamsActivityHandler
     {
+        string _appId;
+        private string _appPassword;
+        public TeamsBot(IConfiguration config)
+        {
+            _appId = config["MicrosoftAppId"];
+            _appPassword = config["MicrosoftAppPassword"];
+        }
         protected override async Task OnTeamsMeetingStartAsync(Microsoft.Bot.Schema.Teams.MeetingStartEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
             await turnContext.SendActivityAsync("Meeting started");
