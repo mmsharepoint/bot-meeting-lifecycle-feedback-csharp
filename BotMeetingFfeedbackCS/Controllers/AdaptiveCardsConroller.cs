@@ -8,14 +8,24 @@ namespace BotMeetingFfeedbackCS.Controllers
 {
     public class AdaptiveCardsConroller
     {
-        public string GetInitialFeedback(string meetingId)
+        public IMessageActivity GetInitialFeedback(string meetingId)
+        {
+            string cardJson = GetInitialFeedbackJson(meetingId);
+            Attachment attachment = new Attachment();
+            attachment.ContentType = AdaptiveCard.ContentType;
+            attachment.Content = JsonConvert.DeserializeObject(cardJson);
+
+            var messageActivity = MessageFactory.Attachment(attachment);
+
+            return messageActivity;
+        }
+        public string _GetInitialFeedback(string meetingId)
         {
             string json = GetInitialFeedbackJson(meetingId);
             return "Meeting ended !!";
         }
         private string GetInitialFeedbackJson(string meetingID)
         {
-
             return GetCard(@"..\BotMeetingFfeedbackCS\AdaptiveCards\VoteRequest.json", meetingID, new string[] { "00000000-0000-0000-0000-000000000000" }, "0", "0", "0", "0", "0");
         }
 

@@ -36,8 +36,7 @@
           "type": "Action.Execute",
           "title": " ",
           "verb": "vote_1",
-          "iconUrl": null,
-          "https": null, //${process.env.PUBLIC_HOSTNAME}/assets/1.png`,
+          "iconUrl": "https://g3nknkff-5130.euw.devtunnels.ms/images/1.png",
           "data": {
             "feedback": {
               "meetingID": "${meetingID}",
@@ -56,8 +55,7 @@
           "type": "Action.Execute",
           "title": " ",
           "verb": "vote_2",
-          "iconUrl": null,
-          "`https": null, //${process.env.PUBLIC_HOSTNAME}/assets/2.png`,
+          "iconUrl": "",
           "data": {
             "feedback": {
               "meetingID": "${meetingID}",
@@ -76,7 +74,7 @@
           "type": "Action.Execute",
           "title": " ",
           "verb": "vote_3",
-          "iconUrl": "https://${process.env.PUBLIC_HOSTNAME}/assets/3.png",
+          "iconUrl": "",
           "data": {
             "feedback": {
               "meetingID": "${meetingID}",
@@ -95,7 +93,7 @@
           "type": "Action.Execute",
           "title": " ",
           "verb": "vote_4",
-          "iconUrl": "https//${process.env.PUBLIC_HOSTNAME}/assets/4.png",
+          "iconUrl": "",
           "data": {
             "feedback": {
               "meetingID": "${meetingID}",
@@ -114,7 +112,7 @@
           "type": "Action.Execute",
           "title": " ",
           "verb": "vote_5",
-          "iconUrl": "https//${process.env.PUBLIC_HOSTNAME}/assets/5.png",
+          "iconUrl": "",
           "data": {
             "feedback": {
               "meetingID": "${meetingID}",

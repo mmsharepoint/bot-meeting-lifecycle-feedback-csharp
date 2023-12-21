@@ -27,10 +27,10 @@ namespace BotMeetingFfeedbackCS
         protected override async Task OnTeamsMeetingEndAsync(Microsoft.Bot.Schema.Teams.MeetingEndEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
             AdaptiveCardsConroller adc = new AdaptiveCardsConroller();
-            string cardJson = adc.GetInitialFeedback(meeting.Id);
+            IMessageActivity initialCard = adc.GetInitialFeedback(meeting.Id);
 
             // await turnContext.SendActivityAsync(messageActivity);
-            await turnContext.SendActivityAsync(cardJson);
+            await turnContext.SendActivityAsync(initialCard);
         }
         //public override Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default) =>
         //    Task.CompletedTask;
