@@ -1,4 +1,5 @@
 ﻿using Microsoft.Bot.Builder;
+using Microsoft.Bot.Schema;
 using Microsoft.Bot.Builder.Teams;
 
 namespace BotMeetingFfeedbackCS
@@ -20,8 +21,12 @@ namespace BotMeetingFfeedbackCS
         {
             await turnContext.SendActivityAsync("Meeting started");
         }
-        
-        public override Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default) =>
-            Task.CompletedTask;
+
+        protected override async Task OnTeamsMeetingEndAsync(Microsoft.Bot.Schema.Teams.MeetingEndEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
+        {
+            await turnContext.SendActivityAsync("Meeting ended");
+        }
+        //public override Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default) =>
+        //    Task.CompletedTask;
     }
 }
