@@ -1,0 +1,118 @@
+{
+  "type": "AdaptiveCard",
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.4",
+  "refresh": {
+    "action": {
+      "type": "Action.Execute",
+      "title": "Refresh",
+      "verb": "alreadyVoted",
+      "data": {
+        "feedback": {
+          "meetingID": "${meetingID}",
+          "votedPersons": [
+            "${votedPersons}"
+          ],
+          "votes1": "${votes1}",
+          "votes2": "${votes2}",
+          "votes3": "${votes3}",
+          "votes4": "${votes4}",
+          "votes5": "${votes5}"
+        }
+      }
+    },
+    "userIds": "${votedPersons}"
+  },
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "Image",
+              "size": "Medium",
+              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/1.png"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${votes1}",
+              "wrap": true,
+              "horizontalAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "Image",
+              "size": "Medium",
+              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/2.png"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${votes2}",
+              "wrap": true,
+              "horizontalAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "Image",
+              "size": "Medium",
+              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/3.png"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${votes3}",
+              "wrap": true,
+              "horizontalAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "Image",
+              "size": "Medium",
+              "url": "http://${process.env.PUBLIC_HOSTNAME}/assets/4.png"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${votes4}",
+              "wrap": true,
+              "horizontalAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "Image",
+              "size": "Medium",
+              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/5.png"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${votes5}",
+              "wrap": true,
+              "horizontalAlignment": "Center"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

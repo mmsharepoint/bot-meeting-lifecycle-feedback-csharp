@@ -1,6 +1,8 @@
 ﻿using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 using Microsoft.Bot.Builder.Teams;
+using Newtonsoft.Json;
+using BotMeetingFfeedbackCS.Controllers;
 
 namespace BotMeetingFfeedbackCS
 {
@@ -24,7 +26,11 @@ namespace BotMeetingFfeedbackCS
 
         protected override async Task OnTeamsMeetingEndAsync(Microsoft.Bot.Schema.Teams.MeetingEndEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
-            await turnContext.SendActivityAsync("Meeting ended");
+            AdaptiveCardsConroller adc = new AdaptiveCardsConroller();
+            string cardJson = adc.GetInitialFeedback(meeting.Id);
+
+            // await turnContext.SendActivityAsync(messageActivity);
+            await turnContext.SendActivityAsync(cardJson);
         }
         //public override Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default) =>
         //    Task.CompletedTask;
