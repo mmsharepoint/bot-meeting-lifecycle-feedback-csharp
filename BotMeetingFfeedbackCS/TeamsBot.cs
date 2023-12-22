@@ -14,10 +14,12 @@ namespace BotMeetingFfeedbackCS
     {
         string _appId;
         private string _appPassword;
+        protected string _hosturl;
         public TeamsBot(IConfiguration config)
         {
             _appId = config["MicrosoftAppId"];
             _appPassword = config["MicrosoftAppPassword"];
+            _hosturl = config["BotEndpoint"];
         }
         protected override async Task OnTeamsMeetingStartAsync(Microsoft.Bot.Schema.Teams.MeetingStartEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
@@ -26,7 +28,7 @@ namespace BotMeetingFfeedbackCS
 
         protected override async Task OnTeamsMeetingEndAsync(Microsoft.Bot.Schema.Teams.MeetingEndEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
-            AdaptiveCardsConroller adc = new AdaptiveCardsConroller();
+            AdaptiveCardsConroller adc = new AdaptiveCardsConroller(_hosturl);
             IMessageActivity initialCard = adc.GetInitialFeedback(meeting.Id);
 
             // await turnContext.SendActivityAsync(messageActivity);

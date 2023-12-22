@@ -28,4 +28,6 @@
     <Folder Include="wwwRoot\" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="botId" /></VisualStudio></ProjectExtensions>
+
 </Project>
