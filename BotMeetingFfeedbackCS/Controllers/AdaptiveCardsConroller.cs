@@ -102,7 +102,8 @@ namespace BotMeetingFfeedbackCS.Controllers
                 votes2,
                 votes3,
                 votes4,
-                votes5
+                votes5,
+                _hosturl
             };
 
             string cardJson = template.Expand(adaptiveCardData);

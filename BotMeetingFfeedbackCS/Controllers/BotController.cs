@@ -28,6 +28,7 @@ namespace BotMeetingFfeedbackCS.Controllers
                 _bot,
                 cancellationToken
             );
+            string url = Request.Scheme + "://" + Request.Host;
         }
     }
 }

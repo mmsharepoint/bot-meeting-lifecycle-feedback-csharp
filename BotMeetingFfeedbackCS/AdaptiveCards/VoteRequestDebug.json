@@ -27,7 +27,8 @@
     {
       "type": "TextBlock",
       "text": "How did you like the meeting?",
-      "wrap": true
+      "wrap": true,
+      "horizontalAlignment": "Center"
     },
     {
       "type": "ActionSet",
@@ -36,7 +37,45 @@
           "type": "Action.Execute",
           "title": " ",
           "verb": "vote_1",
-          "iconUrl": "https://tqb2m17b-5130.euw.devtunnels.ms/images/1.png",
+          "iconUrl": "${_hosturl}/images/1.png",
+          "data": {
+            "feedback": {
+              "meetingID": "${meetingID}",
+              "votedPersons": [
+                "${votedPersons}"
+              ],
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_2",
+          "iconUrl": "${_hosturl}/images/2.png",
+          "data": {
+            "feedback": {
+              "meetingID": "${meetingID}",
+              "votedPersons": [
+                "${votedPersons}"
+              ],
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_3",
+          "iconUrl": "${_hosturl}/images/3.png",
           "data": {
             "feedback": {
               "meetingID": "${meetingID}",
