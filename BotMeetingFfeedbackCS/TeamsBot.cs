@@ -38,15 +38,45 @@ namespace BotMeetingFfeedbackCS
             await turnContext.SendActivityAsync(initialCard);
         }
 
-        protected override async Task<InvokeResponse> OnInvokeActivityAsync(ITurnContext<IInvokeActivity> turnContext, CancellationToken cancellationToken)
+        protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAsync(ITurnContext<IInvokeActivity> turnContext, AdaptiveCardInvokeValue invokeValue, CancellationToken cancellationToken)
         {
-            string jsonCardRequest = turnContext.Activity.Value as string;
-            await turnContext.SendActivityAsync("Voted 2!!");
-            return new InvokeResponse
+            string verb = invokeValue.Action.Verb;
+            if (verb == "alreadyVoted")
             {
-                Status = 200
-            };
+
+            }
+            else
+            {
+                switch (verb)
+                {
+                    case "vote_1":
+                        // votes1 += 1;
+                        break;
+                    case "vote_2":
+                        // votes2 += 1;
+                        break;
+                    case "vote_3":
+                        // votes3 += 1;
+                        break;
+                    case "vote_4":
+                        // votes4 += 1;
+                        break;
+                    case "vote_5":
+                        // votes5 += 1;
+                        break;
+                }
+            }
+                await turnContext.SendActivityAsync("Voted 2!!");
+            return new AdaptiveCardInvokeResponse
+            {
+                StatusCode = 200,
+                Value = "Voted 2!"
+            }; 
         }
+        //protected override async Task<InvokeResponse> OnInvokeActivityAsync(ITurnContext<IInvokeActivity> turnContext, CancellationToken cancellationToken)
+        //{
+            
+        //}
         //public override Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default) =>
         //    Task.CompletedTask;
     }
