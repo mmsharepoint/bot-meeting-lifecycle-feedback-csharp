@@ -15,6 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Properties\launchSettings.sample.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\launchSettings.sample.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AdaptiveCards" Version="3.1.0" />
     <PackageReference Include="AdaptiveCards.Templating" Version="1.5.0" />
     <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.18.1" />
@@ -26,6 +34,14 @@
 
   <ItemGroup>
     <Folder Include="wwwRoot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Properties\launchSettings.sample.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="botId" /></VisualStudio></ProjectExtensions>

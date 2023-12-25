@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using BotMeetingFfeedbackCS.Controllers;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.Bot.Schema.Teams;
 
 namespace BotMeetingFfeedbackCS
 {
@@ -21,11 +22,10 @@ namespace BotMeetingFfeedbackCS
         {
             _appId = config["MicrosoftAppId"];
             _appPassword = config["MicrosoftAppPassword"];
-            _hosturl = server.Features.Get<IServerAddressesFeature>().Addresses.FirstOrDefault("");
+            _hosturl = config["BotEndpoint"];
         }
         protected override async Task OnTeamsMeetingStartAsync(Microsoft.Bot.Schema.Teams.MeetingStartEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
-            string url = turnContext.Activity.ServiceUrl;
             await turnContext.SendActivityAsync("Meeting started");
         }
 
@@ -36,6 +36,16 @@ namespace BotMeetingFfeedbackCS
 
             // await turnContext.SendActivityAsync(messageActivity);
             await turnContext.SendActivityAsync(initialCard);
+        }
+
+        protected override async Task<InvokeResponse> OnInvokeActivityAsync(ITurnContext<IInvokeActivity> turnContext, CancellationToken cancellationToken)
+        {
+            string jsonCardRequest = turnContext.Activity.Value as string;
+            await turnContext.SendActivityAsync("Voted 2!!");
+            return new InvokeResponse
+            {
+                Status = 200
+            };
         }
         //public override Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default) =>
         //    Task.CompletedTask;

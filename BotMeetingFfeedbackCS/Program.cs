@@ -51,8 +51,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    // app.Logger.Log(LogLevel.Information, app.Environment.WebRootPath, null, null);
-    // builder.Configuration["BotEndpoint"] = config.BOT_ENDPOINT;
+    builder.Configuration["BotEndpoint"] = Environment.GetEnvironmentVariable("VS_TUNNEL_URL");
 }
 
 app.UseStaticFiles();

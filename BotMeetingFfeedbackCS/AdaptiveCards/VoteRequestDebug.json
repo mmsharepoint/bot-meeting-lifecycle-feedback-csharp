@@ -89,6 +89,44 @@
               "votes5": "${votes5}"
             }
           }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_4",
+          "iconUrl": "${_hosturl}/images/4.png",
+          "data": {
+            "feedback": {
+              "meetingID": "${meetingID}",
+              "votedPersons": [
+                "${votedPersons}"
+              ],
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_5",
+          "iconUrl": "${_hosturl}/images/5.png",
+          "data": {
+            "feedback": {
+              "meetingID": "${meetingID}",
+              "votedPersons": [
+                "${votedPersons}"
+              ],
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          }
         }
       ]
     }
