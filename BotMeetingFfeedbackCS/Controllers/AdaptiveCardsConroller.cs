@@ -1,5 +1,6 @@
 ﻿using AdaptiveCards;
 using AdaptiveCards.Templating;
+using BotMeetingFfeedbackCS.Model;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
@@ -78,6 +79,17 @@ namespace BotMeetingFfeedbackCS.Controllers
 
             return messageActivity;
         }
+        public IMessageActivity GetDeactivatedFeedback(Feedback feedback)
+        {
+            string cardJson = GetDeactivatedCardJson(feedback);
+            Attachment attachment = new Attachment();
+            attachment.ContentType = AdaptiveCard.ContentType;
+            attachment.Content = JsonConvert.DeserializeObject(cardJson);
+
+            var messageActivity = MessageFactory.Attachment(attachment);
+
+            return messageActivity;
+        }
         public string __GetInitialFeedback(string meetingId)
         {
             string json = GetInitialFeedbackJson(meetingId);
@@ -85,10 +97,20 @@ namespace BotMeetingFfeedbackCS.Controllers
         }
         private string GetInitialFeedbackJson(string meetingID)
         {
-            return GetCard(@"..\BotMeetingFfeedbackCS\AdaptiveCards\VoteRequestDebug.json", meetingID, new string[] { "00000000-0000-0000-0000-000000000000" }, "0", "0", "0", "0", "0");
+            return GetCard(@"..\BotMeetingFfeedbackCS\AdaptiveCards\VoteRequestDebug.json", meetingID, new string[] { "00000000-0000-0000-0000-000000000000" }, 0, 0, 0, 0, 0);
         }
 
-        private string GetCard(string filePath, string meetingID, string[] votedPersons, string votes1, string votes2, string votes3, string votes4, string votes5)
+        private string GetDeactivatedCardJson(Feedback feedback)
+        {
+            return GetCard(@"..\BotMeetingFfeedbackCS\AdaptiveCards\VoteResult.json", feedback.meetingID, feedback.votedPersons, feedback.votes1, feedback.votes2, feedback.votes3, feedback.votes4, feedback.votes5);
+        }
+
+        private string GetDeactivatedCard(Feedback feedback)
+        {
+            return GetCard(@"..\BotMeetingFfeedbackCS\AdaptiveCards\VoteResult.json", feedback.meetingID, feedback.votedPersons, feedback.votes1, feedback.votes2, feedback.votes3, feedback.votes4, feedback.votes5);
+        }
+
+        private string GetCard(string filePath, string meetingID, string[] votedPersons, int votes1, int votes2, int votes3, int votes4, int votes5)
         {
             string templateJson = File.ReadAllText(filePath);
 

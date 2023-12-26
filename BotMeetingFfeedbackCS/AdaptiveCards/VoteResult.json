@@ -8,17 +8,13 @@
       "title": "Refresh",
       "verb": "alreadyVoted",
       "data": {
-        "feedback": {
-          "meetingID": "${meetingID}",
-          "votedPersons": [
-            "${votedPersons}"
-          ],
-          "votes1": "${votes1}",
-          "votes2": "${votes2}",
-          "votes3": "${votes3}",
-          "votes4": "${votes4}",
-          "votes5": "${votes5}"
-        }
+        "meetingID": "${meetingID}",
+        "votedPersons": "${votedPersons}",
+        "votes1": "${votes1}",
+        "votes2": "${votes2}",
+        "votes3": "${votes3}",
+        "votes4": "${votes4}",
+        "votes5": "${votes5}"
       }
     },
     "userIds": "${votedPersons}"
@@ -34,7 +30,7 @@
             {
               "type": "Image",
               "size": "Medium",
-              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/1.png"
+              "url": "${_hosturl}/images/1.png"
             },
             {
               "type": "TextBlock",
@@ -51,7 +47,7 @@
             {
               "type": "Image",
               "size": "Medium",
-              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/2.png"
+              "url": "${_hosturl}/images/2.png"
             },
             {
               "type": "TextBlock",
@@ -68,7 +64,7 @@
             {
               "type": "Image",
               "size": "Medium",
-              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/3.png"
+              "url": "${_hosturl}/images/3.png"
             },
             {
               "type": "TextBlock",
@@ -85,7 +81,7 @@
             {
               "type": "Image",
               "size": "Medium",
-              "url": "http://${process.env.PUBLIC_HOSTNAME}/assets/4.png"
+              "url": "${_hosturl}/images/4.png"
             },
             {
               "type": "TextBlock",
@@ -102,7 +98,7 @@
             {
               "type": "Image",
               "size": "Medium",
-              "url": "https://${process.env.PUBLIC_HOSTNAME}/assets/5.png"
+              "url": "${_hosturl}/images/5.png"
             },
             {
               "type": "TextBlock",

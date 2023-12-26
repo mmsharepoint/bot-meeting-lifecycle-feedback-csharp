@@ -8,127 +8,102 @@
       "title": "Refresh",
       "verb": "alreadyVoted",
       "data": {
-        "feedback": {
-          "meetingID": "${meetingID}",
-          "votedPersons": [
-            "${votedPersons}"
-          ],
-          "votes1": "${votes1}",
-          "votes2": "${votes2}",
-          "votes3": "${votes3}",
-          "votes4": "${votes4}",
-          "votes5": "${votes5}"
-        }
+        "meetingID": "${meetingID}",
+        "votedPersons": "${votedPersons}",
+        "votes1": "${votes1}",
+        "votes2": "${votes2}",
+        "votes3": "${votes3}",
+        "votes4": "${votes4}",
+        "votes5": "${votes5}"
+      },
+      "userIds": "${votedPersons}"
+    },
+    "body": [
+      {
+        "type": "TextBlock",
+        "text": "How did you like the meeting?",
+        "wrap": true
+      },
+      {
+        "type": "ActionSet",
+        "actions": [
+          {
+            "type": "Action.Execute",
+            "title": " ",
+            "verb": "vote_1",
+            "iconUrl": "${_hosturl}/images/1.png",
+            "data": {
+              "meetingID": "${meetingID}",
+              "votedPersons": "${votedPersons}",
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          },
+          {
+            "type": "Action.Execute",
+            "title": " ",
+            "verb": "vote_2",
+            "iconUrl": "${_hosturl}/images/2.png",
+            "data": {
+              "meetingID": "${meetingID}",
+              "votedPersons": "${votedPersons}",
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          },
+          {
+            "type": "Action.Execute",
+            "title": " ",
+            "verb": "vote_3",
+            "iconUrl": "${_hosturl}/images/3.png",
+            "data": {
+              "meetingID": "${meetingID}",
+              "votedPersons": "${votedPersons}",
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          },
+          {
+            "type": "Action.Execute",
+            "title": " ",
+            "verb": "vote_4",
+            "iconUrl": "${_hosturl}/images/4.png",
+            "data": {
+              "meetingID": "${meetingID}",
+              "votedPersons": "${votedPersons}",
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          },
+          {
+            "type": "Action.Execute",
+            "title": " ",
+            "verb": "vote_5",
+            "iconUrl": "${_hosturl}/images/5.png",
+            "data": {
+              "meetingID": "${meetingID}",
+              "votedPersons": "${votedPersons}",
+              "votes1": "${votes1}",
+              "votes2": "${votes2}",
+              "votes3": "${votes3}",
+              "votes4": "${votes4}",
+              "votes5": "${votes5}"
+            }
+          }
+        ]
       }
-    },
-    "userIds": "${votedPersons}"
-  },
-  "body": [
-    {
-      "type": "TextBlock",
-      "text": "How did you like the meeting?",
-      "wrap": true,
-      "horizontalAlignment": "Center"
-    },
-    {
-      "type": "ActionSet",
-      "actions": [
-        {
-          "type": "Action.Execute",
-          "title": " ",
-          "verb": "vote_1",
-          "iconUrl": "${_hosturl}/images/1.png",
-          "data": {
-            "feedback": {
-              "meetingID": "${meetingID}",
-              "votedPersons": [
-                "${votedPersons}"
-              ],
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          }
-        },
-        {
-          "type": "Action.Execute",
-          "title": " ",
-          "verb": "vote_2",
-          "iconUrl": "${_hosturl}/images/2.png",
-          "data": {
-            "feedback": {
-              "meetingID": "${meetingID}",
-              "votedPersons": [
-                "${votedPersons}"
-              ],
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          }
-        },
-        {
-          "type": "Action.Execute",
-          "title": " ",
-          "verb": "vote_3",
-          "iconUrl": "${_hosturl}/images/3.png",
-          "data": {
-            "feedback": {
-              "meetingID": "${meetingID}",
-              "votedPersons": [
-                "${votedPersons}"
-              ],
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          }
-        },
-        {
-          "type": "Action.Execute",
-          "title": " ",
-          "verb": "vote_4",
-          "iconUrl": "${_hosturl}/images/4.png",
-          "data": {
-            "feedback": {
-              "meetingID": "${meetingID}",
-              "votedPersons": [
-                "${votedPersons}"
-              ],
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          }
-        },
-        {
-          "type": "Action.Execute",
-          "title": " ",
-          "verb": "vote_5",
-          "iconUrl": "${_hosturl}/images/5.png",
-          "data": {
-            "feedback": {
-              "meetingID": "${meetingID}",
-              "votedPersons": [
-                "${votedPersons}"
-              ],
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          }
-        }
-      ]
-    }
-  ]
+    ]
+  }
 }

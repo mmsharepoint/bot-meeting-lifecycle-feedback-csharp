@@ -6,6 +6,7 @@ using BotMeetingFfeedbackCS.Controllers;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.Bot.Schema.Teams;
+using BotMeetingFfeedbackCS.Model;
 
 namespace BotMeetingFfeedbackCS
 {
@@ -34,39 +35,49 @@ namespace BotMeetingFfeedbackCS
             AdaptiveCardsConroller adc = new AdaptiveCardsConroller(_hosturl);
             IMessageActivity initialCard = adc.GetInitialFeedback(meeting.Id);
 
-            // await turnContext.SendActivityAsync(messageActivity);
             await turnContext.SendActivityAsync(initialCard);
         }
 
         protected override async Task<AdaptiveCardInvokeResponse> OnAdaptiveCardInvokeAsync(ITurnContext<IInvokeActivity> turnContext, AdaptiveCardInvokeValue invokeValue, CancellationToken cancellationToken)
         {
+            string dataJson = invokeValue.Action.Data.ToString();
+            Feedback feedback = JsonConvert.DeserializeObject<Feedback>(dataJson);            
             string verb = invokeValue.Action.Verb;
             if (verb == "alreadyVoted")
             {
-
+                if (feedback.votedPersons.Contains(turnContext.Activity.From.AadObjectId))
+                {
+                    AdaptiveCardsConroller adc = new AdaptiveCardsConroller(_hosturl);
+                    IMessageActivity deativatedCard = adc.GetDeactivatedFeedback(feedback);
+                    deativatedCard.Id = turnContext.Activity.ReplyToId;
+                    await turnContext.UpdateActivityAsync(deativatedCard);
+                }
+                else
+                {
+                    // User did not vote yet
+                }                
             }
             else
             {
                 switch (verb)
                 {
                     case "vote_1":
-                        // votes1 += 1;
+                        feedback.votes1 += 1;
                         break;
                     case "vote_2":
-                        // votes2 += 1;
+                        feedback.votes2 += 1;
                         break;
                     case "vote_3":
-                        // votes3 += 1;
+                        feedback.votes3 += 1;
                         break;
                     case "vote_4":
-                        // votes4 += 1;
+                        feedback.votes4 += 1;
                         break;
                     case "vote_5":
-                        // votes5 += 1;
+                        feedback.votes5 += 1;
                         break;
                 }
             }
-                await turnContext.SendActivityAsync("Voted 2!!");
             return new AdaptiveCardInvokeResponse
             {
                 StatusCode = 200,
