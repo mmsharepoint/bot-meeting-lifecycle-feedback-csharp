@@ -32,7 +32,7 @@ namespace BotMeetingFfeedbackCS
 
         protected override async Task OnTeamsMeetingEndAsync(Microsoft.Bot.Schema.Teams.MeetingEndEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
-            AdaptiveCardsConroller adc = new AdaptiveCardsConroller(_hosturl);
+            AdaptiveCardsController adc = new AdaptiveCardsController(_hosturl);
             IMessageActivity initialCard = adc.GetInitialFeedback(meeting.Id);
 
             await turnContext.SendActivityAsync(initialCard);
@@ -47,7 +47,7 @@ namespace BotMeetingFfeedbackCS
             {
                 if (feedback.votedPersons.Contains(turnContext.Activity.From.AadObjectId))
                 {
-                    AdaptiveCardsConroller adc = new AdaptiveCardsConroller(_hosturl);
+                    AdaptiveCardsController adc = new AdaptiveCardsController(_hosturl);
                     IMessageActivity deativatedCard = adc.GetDeactivatedFeedback(feedback);
                     deativatedCard.Id = turnContext.Activity.ReplyToId;
                     await turnContext.UpdateActivityAsync(deativatedCard);

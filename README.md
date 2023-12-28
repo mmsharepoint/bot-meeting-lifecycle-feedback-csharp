@@ -24,9 +24,9 @@ This sample was created [using the Teams Toolkit with Visual Studio 2022](https:
 
 ![drop](https://img.shields.io/badge/Bot&nbsp;Framework-14.18-green.svg)
 
-![drop](https://img.shields.io/badge/Teams&nbsp;Toolkit&nbsp;for&nbsp;VS&nbsp;Code-17.7-green.svg)
+![drop](https://img.shields.io/badge/Teams&nbsp;Toolkit&nbsp;for&nbsp;VS&nbsp;17.7-green.svg)
 
-![drop](https://img.shields.io/badge/Visual&nbsp;Studiot&nbsp;2022&nbsp;2022-17.8-green.svg)
+![drop](https://img.shields.io/badge/Visual&nbsp;Studio&nbsp;2022-17.8-green.svg)
 
 
 ## Prerequisites
