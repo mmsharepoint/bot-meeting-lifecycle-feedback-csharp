@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.Bot.Schema.Teams;
 using BotMeetingFfeedbackCS.Model;
+using Microsoft.Graph.Models;
 
 namespace BotMeetingFfeedbackCS
 {
@@ -77,11 +78,15 @@ namespace BotMeetingFfeedbackCS
                         feedback.votes5 += 1;
                         break;
                 }
+                feedback.votedPersons.Append(turnContext.Activity.From.AadObjectId);
+                AdaptiveCardsController adc = new AdaptiveCardsController(_hosturl);
+                IMessageActivity deativatedCard = adc.GetDeactivatedFeedback(feedback);
+                deativatedCard.Id = turnContext.Activity.ReplyToId;
+                await turnContext.UpdateActivityAsync(deativatedCard);
             }
             return new AdaptiveCardInvokeResponse
             {
-                StatusCode = 200,
-                Value = "Voted 2!"
+                StatusCode = 200
             }; 
         }
         //protected override async Task<InvokeResponse> OnInvokeActivityAsync(ITurnContext<IInvokeActivity> turnContext, CancellationToken cancellationToken)
