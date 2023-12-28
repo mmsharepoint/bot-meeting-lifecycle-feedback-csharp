@@ -10,16 +10,43 @@
       "data": {
         "meetingID": "${meetingID}",
         "votedPersons": "${votedPersons}",
-        "votes1": "${votes1}",
-        "votes2": "${votes2}",
-        "votes3": "${votes3}",
-        "votes4": "${votes4}",
-        "votes5": "${votes5}"
+        "votes1": "${formatNumber(votes1,0)}",
+        "votes2": "${formatNumber(votes2,0)}",
+        "votes3": "${formatNumber(votes3,0)}",
+        "votes4": "${formatNumber(votes4,0)}",
+        "votes5": "${formatNumber(votes5,0)}"
       }
     },
     "userIds": "${votedPersons}"
   },
   "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "items": [
+            {
+              "type": "Image",
+              "url": "${_hosturl}/images/pnp_logo.png?raw=true",
+              "size": "Small"
+            }
+          ],
+          "width": "auto"
+        },
+        {
+          "type": "Column",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Voting result",
+              "wrap": true
+            }
+          ],
+          "width": "stretch"
+        }
+      ]
+    },
     {
       "type": "ColumnSet",
       "columns": [
@@ -34,7 +61,7 @@
             },
             {
               "type": "TextBlock",
-              "text": "${votes1}",
+              "text": "${formatNumber(votes1,0)}",
               "wrap": true,
               "horizontalAlignment": "Center"
             }
@@ -51,7 +78,7 @@
             },
             {
               "type": "TextBlock",
-              "text": "${votes2}",
+              "text": "${formatNumber(votes2,0)}",
               "wrap": true,
               "horizontalAlignment": "Center"
             }
@@ -68,7 +95,7 @@
             },
             {
               "type": "TextBlock",
-              "text": "${votes3}",
+              "text": "${formatNumber(votes3,0)}",
               "wrap": true,
               "horizontalAlignment": "Center"
             }
@@ -85,7 +112,7 @@
             },
             {
               "type": "TextBlock",
-              "text": "${votes4}",
+              "text": "${formatNumber(votes4,0)}",
               "wrap": true,
               "horizontalAlignment": "Center"
             }
@@ -102,7 +129,7 @@
             },
             {
               "type": "TextBlock",
-              "text": "${votes5}",
+              "text": "${formatNumber(votes5,0)}",
               "wrap": true,
               "horizontalAlignment": "Center"
             }

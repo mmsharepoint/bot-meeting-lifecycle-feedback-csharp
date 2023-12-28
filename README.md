@@ -55,6 +55,7 @@ Version|Date|Author|Comments
 
 
 ## Features
+* Teams Toolkit for Visual Studio 2022 Bot Development 
+* [Bot Meeting Lifecycle methods](https://learn.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis?tabs=channel-meeting%2Cguest-user%2Cone-on-one-call%2Cdotnet%2Cparticipant-join-event%2Cparticipant-join-event1#receive-real-time-teams-meeting-events&WT.mc_id=M365-MVP-5004617)
 * [Post an adaptive card](https://adaptivecards.io/)
-* Configuraton storage in [Azure App Configuration](https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview?WT.mc_id=M365-MVP-5004617)
-* Secret Storage and consumption in [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview?WT.mc_id=M365-MVP-5004617)
+* Using the [Adaptive Cards Universal Action Model](https://learn.microsoft.com/en-us/adaptive-cards/authoring-cards/universal-action-model?WT.mc_id=M365-MVP-5004617)

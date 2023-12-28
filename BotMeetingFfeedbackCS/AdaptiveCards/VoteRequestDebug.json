@@ -10,100 +10,122 @@
       "data": {
         "meetingID": "${meetingID}",
         "votedPersons": "${votedPersons}",
-        "votes1": "${votes1}",
-        "votes2": "${votes2}",
-        "votes3": "${votes3}",
-        "votes4": "${votes4}",
-        "votes5": "${votes5}"
-      },
-      "userIds": "${votedPersons}"
-    },
-    "body": [
-      {
-        "type": "TextBlock",
-        "text": "How did you like the meeting?",
-        "wrap": true
-      },
-      {
-        "type": "ActionSet",
-        "actions": [
-          {
-            "type": "Action.Execute",
-            "title": " ",
-            "verb": "vote_1",
-            "iconUrl": "${_hosturl}/images/1.png",
-            "data": {
-              "meetingID": "${meetingID}",
-              "votedPersons": "${votedPersons}",
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          },
-          {
-            "type": "Action.Execute",
-            "title": " ",
-            "verb": "vote_2",
-            "iconUrl": "${_hosturl}/images/2.png",
-            "data": {
-              "meetingID": "${meetingID}",
-              "votedPersons": "${votedPersons}",
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          },
-          {
-            "type": "Action.Execute",
-            "title": " ",
-            "verb": "vote_3",
-            "iconUrl": "${_hosturl}/images/3.png",
-            "data": {
-              "meetingID": "${meetingID}",
-              "votedPersons": "${votedPersons}",
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          },
-          {
-            "type": "Action.Execute",
-            "title": " ",
-            "verb": "vote_4",
-            "iconUrl": "${_hosturl}/images/4.png",
-            "data": {
-              "meetingID": "${meetingID}",
-              "votedPersons": "${votedPersons}",
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          },
-          {
-            "type": "Action.Execute",
-            "title": " ",
-            "verb": "vote_5",
-            "iconUrl": "${_hosturl}/images/5.png",
-            "data": {
-              "meetingID": "${meetingID}",
-              "votedPersons": "${votedPersons}",
-              "votes1": "${votes1}",
-              "votes2": "${votes2}",
-              "votes3": "${votes3}",
-              "votes4": "${votes4}",
-              "votes5": "${votes5}"
-            }
-          }
-        ]
+        "votes1": "${formatNumber(votes1,0)}",
+        "votes2": "${formatNumber(votes2,0)}",
+        "votes3": "${formatNumber(votes3,0)}",
+        "votes4": "${formatNumber(votes4,0)}",
+        "votes5": "${formatNumber(votes5,0)}"
       }
-    ]
-  }
+    },
+    "userIds": "${votedPersons}"
+  },
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "items": [
+            {
+              "type": "Image",
+              "url": "${_hosturl}/images/pnp_logo.png?raw=true",
+              "size": "Small"
+            }
+          ],
+          "width": "auto"
+        },
+        {
+          "type": "Column",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "How did you like the meeting?",
+              "wrap": true
+            }
+          ],
+          "width": "stretch"
+        }
+      ]
+    },
+    {
+      "type": "ActionSet",
+      "actions": [
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_1",
+          "iconUrl": "${_hosturl}/images/1.png",
+          "data": {
+            "meetingID": "${meetingID}",
+            "votedPersons": "${votedPersons}",
+            "votes1": "${formatNumber(votes1,0)}",
+            "votes2": "${formatNumber(votes2,0)}",
+            "votes3": "${formatNumber(votes3,0)}",
+            "votes4": "${formatNumber(votes4,0)}",
+            "votes5": "${formatNumber(votes5,0)}"
+          }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_2",
+          "iconUrl": "${_hosturl}/images/2.png",
+          "data": {
+            "meetingID": "${meetingID}",
+            "votedPersons": "${votedPersons}",
+            "votes1": "${formatNumber(votes1,0)}",
+            "votes2": "${formatNumber(votes2,0)}",
+            "votes3": "${formatNumber(votes3,0)}",
+            "votes4": "${formatNumber(votes4,0)}",
+            "votes5": "${formatNumber(votes5,0)}"
+          }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_3",
+          "iconUrl": "${_hosturl}/images/3.png",
+          "data": {
+            "meetingID": "${meetingID}",
+            "votedPersons": "${votedPersons}",
+            "votes1": "${formatNumber(votes1,0)}",
+            "votes2": "${formatNumber(votes2,0)}",
+            "votes3": "${formatNumber(votes3,0)}",
+            "votes4": "${formatNumber(votes4,0)}",
+            "votes5": "${formatNumber(votes5,0)}"
+          }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_4",
+          "iconUrl": "${_hosturl}/images/4.png",
+          "data": {
+            "meetingID": "${meetingID}",
+            "votedPersons": "${votedPersons}",
+            "votes1": "${formatNumber(votes1,0)}",
+            "votes2": "${formatNumber(votes2,0)}",
+            "votes3": "${formatNumber(votes3,0)}",
+            "votes4": "${formatNumber(votes4,0)}",
+            "votes5": "${formatNumber(votes5,0)}"
+          }
+        },
+        {
+          "type": "Action.Execute",
+          "title": " ",
+          "verb": "vote_5",
+          "iconUrl": "${_hosturl}/images/5.png",
+          "data": {
+            "meetingID": "${meetingID}",
+            "votedPersons": "${votedPersons}",
+            "votes1": "${formatNumber(votes1,0)}",
+            "votes2": "${formatNumber(votes2,0)}",
+            "votes3": "${formatNumber(votes3,0)}",
+            "votes4": "${formatNumber(votes4,0)}",
+            "votes5": "${formatNumber(votes5,0)}"
+          }
+        }
+      ]
+    }
+  ]
 }
