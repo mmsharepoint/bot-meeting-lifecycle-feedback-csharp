@@ -4,3 +4,8 @@
 
 /.vs
 /BotMeetingFfeedbackCS/Properties/launchSettings.json
+/BotMeetingFeedbackCS/Models
+/BotMeetingFeedbackCS/.vs
+/BotMeetingFeedbackCS/Properties/launchSettings.json
+/BotMeetingFeedbackCS/Resources/HelloWorldCard.json
+/BotMeetingFeedbackCS/Commands
