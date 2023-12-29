@@ -52,7 +52,7 @@ namespace BotMeetingFfeedbackCS
                 else
                 {
                     // User did not vote, yet
-                    IMessageActivity currentCard = adc.GetDeactivatedFeedback(feedback);
+                    IMessageActivity currentCard = adc.GetCurentFeedback(feedback);
                     currentCard.Id = turnContext.Activity.ReplyToId;
                     await turnContext.UpdateActivityAsync(currentCard);
                 }                
