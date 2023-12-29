@@ -40,6 +40,7 @@
             {
               "type": "TextBlock",
               "text": "How did you like the meeting?",
+              "style": "heading",
               "wrap": true
             }
           ],

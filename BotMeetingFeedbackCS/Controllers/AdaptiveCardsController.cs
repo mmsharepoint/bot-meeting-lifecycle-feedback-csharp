@@ -78,6 +78,17 @@ namespace BotMeetingFfeedbackCS.Controllers
 
             return messageActivity;
         }
+        public IMessageActivity GetCurentFeedback(Feedback feedback)
+        {
+            string cardJson = GetCurrentCardJson(feedback);
+            Attachment attachment = new Attachment();
+            attachment.ContentType = AdaptiveCard.ContentType;
+            attachment.Content = JsonConvert.DeserializeObject(cardJson);
+
+            var messageActivity = MessageFactory.Attachment(attachment);
+
+            return messageActivity;
+        }
         public IMessageActivity GetDeactivatedFeedback(Feedback feedback)
         {
             string cardJson = GetDeactivatedCardJson(feedback);
@@ -88,26 +99,20 @@ namespace BotMeetingFfeedbackCS.Controllers
             var messageActivity = MessageFactory.Attachment(attachment);
 
             return messageActivity;
-        }
-        //public string __GetInitialFeedback(string meetingId)
-        //{
-        //    string json = GetInitialFeedbackJson(meetingId);
-        //    return "Meeting ended !!";
-        //}
+        }        
         private string GetInitialFeedbackJson(string meetingID)
         {
             return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteRequestDebug.json", meetingID, new string[] { "00000000-0000-0000-0000-000000000000" }, 0, 0, 0, 0, 0);
         }
 
+        private string GetCurrentCardJson(Feedback feedback)
+        {
+            return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteRequestDebug.json", feedback.meetingID, feedback.votedPersons, feedback.votes1, feedback.votes2, feedback.votes3, feedback.votes4, feedback.votes5);
+        }
         private string GetDeactivatedCardJson(Feedback feedback)
         {
             return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteResult.json", feedback.meetingID, feedback.votedPersons, feedback.votes1, feedback.votes2, feedback.votes3, feedback.votes4, feedback.votes5);
         }
-
-        //private string GetDeactivatedCard(Feedback feedback)
-        //{
-        //    return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteResult.json", feedback.meetingID, feedback.votedPersons, feedback.votes1, feedback.votes2, feedback.votes3, feedback.votes4, feedback.votes5);
-        //}
 
         private string GetCard(string filePath, string meetingID, string[] votedPersons, int votes1, int votes2, int votes3, int votes4, int votes5)
         {

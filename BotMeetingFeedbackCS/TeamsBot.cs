@@ -11,10 +11,6 @@ using Microsoft.Graph.Models;
 
 namespace BotMeetingFfeedbackCS
 {
-    /// <summary>
-    /// An empty bot handler.
-    /// You can add your customization code here to extend your bot logic if needed.
-    /// </summary>
     public class TeamsBot : TeamsActivityHandler
     {
         string _appId;
@@ -44,18 +40,21 @@ namespace BotMeetingFfeedbackCS
             string dataJson = invokeValue.Action.Data.ToString();
             Feedback feedback = JsonConvert.DeserializeObject<Feedback>(dataJson);            
             string verb = invokeValue.Action.Verb;
+            AdaptiveCardsController adc = new AdaptiveCardsController(_hosturl);
             if (verb == "alreadyVoted")
             {
                 if (feedback.votedPersons.Contains(turnContext.Activity.From.AadObjectId))
                 {
-                    AdaptiveCardsController adc = new AdaptiveCardsController(_hosturl);
                     IMessageActivity deativatedCard = adc.GetDeactivatedFeedback(feedback);
                     deativatedCard.Id = turnContext.Activity.ReplyToId;
                     await turnContext.UpdateActivityAsync(deativatedCard);
                 }
                 else
                 {
-                    // User did not vote yet
+                    // User did not vote, yet
+                    IMessageActivity currentCard = adc.GetDeactivatedFeedback(feedback);
+                    currentCard.Id = turnContext.Activity.ReplyToId;
+                    await turnContext.UpdateActivityAsync(currentCard);
                 }                
             }
             else
@@ -79,7 +78,7 @@ namespace BotMeetingFfeedbackCS
                         break;
                 }
                 feedback.votedPersons.Append(turnContext.Activity.From.AadObjectId);
-                AdaptiveCardsController adc = new AdaptiveCardsController(_hosturl);
+                
                 IMessageActivity deativatedCard = adc.GetDeactivatedFeedback(feedback);
                 deativatedCard.Id = turnContext.Activity.ReplyToId;
                 await turnContext.UpdateActivityAsync(deativatedCard);
@@ -89,11 +88,5 @@ namespace BotMeetingFfeedbackCS
                 StatusCode = 200
             }; 
         }
-        //protected override async Task<InvokeResponse> OnInvokeActivityAsync(ITurnContext<IInvokeActivity> turnContext, CancellationToken cancellationToken)
-        //{
-            
-        //}
-        //public override Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default) =>
-        //    Task.CompletedTask;
     }
 }
