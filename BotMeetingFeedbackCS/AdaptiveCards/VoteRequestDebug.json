@@ -28,7 +28,7 @@
           "items": [
             {
               "type": "Image",
-              "url": "${_hosturl}/images/pnp_logo.png?raw=true",
+              "url": "${_hosturl}/images/pnp_logo.png",
               "size": "Small"
             }
           ],
