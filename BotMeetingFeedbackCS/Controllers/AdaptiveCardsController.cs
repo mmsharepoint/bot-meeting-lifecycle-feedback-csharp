@@ -14,59 +14,7 @@ namespace BotMeetingFfeedbackCS.Controllers
         {
             _hosturl = hosturl;
         }
-        //public IMessageActivity _GetInitialFeedback(string meetingId)
-        //{
-        //    string templJson = @"
-        //    {
-        //        ""type"": ""AdaptiveCard"",
-        //        ""version"": ""1.4"",
-        //        ""body"": [
-        //            {
-        //                ""type"": ""ColumnSet"",
-        //                ""columns"": [
-        //                    {
-        //                        ""type"": ""Column"",
-        //                        ""width"": ""stretch"",
-        //                        ""items"": [
-        //                            {
-        //                                ""type"": ""TextBlock"",
-        //                                ""text"": ""Meeting ended, ${name}!!"",
-        //                                ""wrap"": true
-        //                            }
-        //                        ]
-        //                    },
-        //                    {
-        //                        ""type"": ""Column"",
-        //                        ""width"": ""stretch"",
-        //                        ""items"": [
-        //                            {
-        //                                ""type"": ""Image"",
-        //                                ""Url"": ""${host}/images/1.png""                                    }
-        //                        ]
-        //                    }
-        //                ]
-        //            }
 
-        //        ]
-        //    }";
-
-        //    var myData = new
-        //    {
-        //        host = _hosturl,
-        //        Name = "Markus"
-        //    };
-
-        //    AdaptiveCardTemplate template = new AdaptiveCardTemplate(templJson);
-        //    string cardJson = template.Expand(myData);
-
-        //    Attachment attachment = new Attachment();
-        //    attachment.ContentType = AdaptiveCard.ContentType;
-        //    attachment.Content = JsonConvert.DeserializeObject(cardJson);
-
-        //    var messageActivity = MessageFactory.Attachment(attachment);
-
-        //    return messageActivity;
-        //}
         public IMessageActivity GetInitialFeedback(string meetingId)
         {
             string cardJson = GetInitialFeedbackJson(meetingId);

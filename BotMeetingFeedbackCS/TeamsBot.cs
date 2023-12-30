@@ -77,7 +77,9 @@ namespace BotMeetingFfeedbackCS
                         feedback.votes5 += 1;
                         break;
                 }
-                feedback.votedPersons.Append(turnContext.Activity.From.AadObjectId);
+                List<string> voters = new List<string>(feedback.votedPersons);
+                voters.Add(turnContext.Activity.From.AadObjectId);
+                feedback.votedPersons = voters.ToArray();
                 
                 IMessageActivity deativatedCard = adc.GetDeactivatedFeedback(feedback);
                 deativatedCard.Id = turnContext.Activity.ReplyToId;
