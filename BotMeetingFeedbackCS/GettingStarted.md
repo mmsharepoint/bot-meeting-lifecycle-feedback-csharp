@@ -8,7 +8,6 @@
 to install the app to
 4. Press F5, or select the Debug > Start Debugging menu in Visual Studio
 5. In the launched browser, select the Add button to load the app in Teams
-6. In the chat bar, type and send "helloWorld" to your app to trigger a response
 
 ## Learn more
 

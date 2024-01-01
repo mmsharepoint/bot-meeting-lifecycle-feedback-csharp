@@ -16,7 +16,7 @@ App result:
 
 |App in action - Feedback roundtrip|
 :-------------------------:
-![Feedback given - Refresh card](assets/VoteResult.png)
+![Feedback given - Refresh card](assets/FeedbackVotingInAction.gif)
 
 For further details see the author's [blog post](https://mmsharepoint.wordpress.com/2024/)
 
@@ -41,7 +41,7 @@ This sample was created [using the Teams Toolkit with Visual Studio 2022](https:
 
 Version|Date|Author|Comments
 -------|----|--------|--------
-1.0|January 12, 2024|[Markus Moeller](http://www.twitter.com/moeller2_0)|Initial release
+1.0|January 01, 2024|[Markus Moeller](http://www.twitter.com/moeller2_0)|Initial release
 
 ## Disclaimer
 
@@ -52,9 +52,14 @@ Version|Date|Author|Comments
 - Clone the repository
     ```bash
     git clone https://github.com/mmsharepoint/bot-meeting-lifecycle-feedback-csharp.git
-- Open bot-meeting-lifecycle-feedback-csharp.sln in Visual Studio
+- Open bot-meeting-lifecycle-feedback-csharp.sln in Visual Studio 2022
 - Perform first actions in GettingStarted.txt (before hitting F5)
-- ...
+- Now you should have prepared your app (will try local first)
+- In your Teams calendar have a "real" meeting prepared ("real" means with at least +1 real partcipant)
+- When starting debug by F5 or "Microsoft Teams (browser)"
+  - Âdd the app to that meeting (eventually search for it)
+  - Join the meeting to start it
+  - Leave and end the meeting
 
 
 
