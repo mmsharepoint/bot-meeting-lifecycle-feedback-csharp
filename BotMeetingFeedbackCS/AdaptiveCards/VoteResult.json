@@ -29,7 +29,7 @@
             {
               "type": "Image",
               "url": "${_hosturl}/images/pnp_logo.png?raw=true",
-              "size": "Small"
+              "size": "Medium"
             }
           ],
           "width": "auto"

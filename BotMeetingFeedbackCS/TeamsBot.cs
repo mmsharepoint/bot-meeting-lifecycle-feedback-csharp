@@ -24,7 +24,8 @@ namespace BotMeetingFfeedbackCS
         }
         protected override async Task OnTeamsMeetingStartAsync(Microsoft.Bot.Schema.Teams.MeetingStartEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)
         {
-            await turnContext.SendActivityAsync("Meeting started");
+            // Start ignored by sampple
+            // await turnContext.SendActivityAsync("Meeting started");
         }
 
         protected override async Task OnTeamsMeetingEndAsync(Microsoft.Bot.Schema.Teams.MeetingEndEventDetails meeting, Microsoft.Bot.Builder.ITurnContext<Microsoft.Bot.Schema.IEventActivity> turnContext, System.Threading.CancellationToken cancellationToken)

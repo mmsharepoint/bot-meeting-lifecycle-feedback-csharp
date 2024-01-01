@@ -50,12 +50,12 @@ namespace BotMeetingFfeedbackCS.Controllers
         }        
         private string GetInitialFeedbackJson(string meetingID)
         {
-            return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteRequestDebug.json", meetingID, new string[] { "00000000-0000-0000-0000-000000000000" }, 0, 0, 0, 0, 0);
+            return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteRequest.json", meetingID, new string[] { "00000000-0000-0000-0000-000000000000" }, 0, 0, 0, 0, 0);
         }
 
         private string GetCurrentCardJson(Feedback feedback)
         {
-            return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteRequestDebug.json", feedback.meetingID, feedback.votedPersons, feedback.votes1, feedback.votes2, feedback.votes3, feedback.votes4, feedback.votes5);
+            return GetCard(@"..\BotMeetingFeedbackCS\AdaptiveCards\VoteRequest.json", feedback.meetingID, feedback.votedPersons, feedback.votes1, feedback.votes2, feedback.votes3, feedback.votes4, feedback.votes5);
         }
         private string GetDeactivatedCardJson(Feedback feedback)
         {

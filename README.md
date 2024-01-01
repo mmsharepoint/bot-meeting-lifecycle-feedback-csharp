@@ -8,13 +8,17 @@ App result:
 
 |Meeting ended - Feedback request posted|
 :-------------------------:
-![Meeting ended - Feedback request](https://mmsharepoint.files.wordpress.com/2021/10/06meetingended_feedbackrequest.gif?w=358&zoom=2)
+![Meeting ended - Feedback request](assets/VoteReqest.png)
 
 |Feedback given - Refreshed card shows result|
 :-------------------------:
-![Feedback given - Refresh card](https://mmsharepoint.files.wordpress.com/2021/10/07givefeedback-1.gif)
+![Feedback given - Refresh card](assets/VoteResult.png)
 
-For further details see the author's [blog post](https://mmsharepoint.wordpress.com/2023/)
+|App in action - Feedback roundtrip|
+:-------------------------:
+![Feedback given - Refresh card](assets/VoteResult.png)
+
+For further details see the author's [blog post](https://mmsharepoint.wordpress.com/2024/)
 
 ## Applies to
 
