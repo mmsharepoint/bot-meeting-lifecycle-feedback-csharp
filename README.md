@@ -8,7 +8,7 @@ App result:
 
 |Meeting ended - Feedback request posted|
 :-------------------------:
-![Meeting ended - Feedback request](assets/VoteReqest.png)
+![Meeting ended - Feedback request](assets/VoteRequest.png)
 
 |Feedback given - Refreshed card shows result|
 :-------------------------:
@@ -59,7 +59,7 @@ Version|Date|Author|Comments
 
 
 ## Features
-* Teams Toolkit for Visual Studio 2022 Bot Development 
+* Teams Toolkit for Visual Studio 2022 Bot DevelopmentÂ 
 * [Bot Meeting Lifecycle methods](https://learn.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis?tabs=channel-meeting%2Cguest-user%2Cone-on-one-call%2Cdotnet%2Cparticipant-join-event%2Cparticipant-join-event1#receive-real-time-teams-meeting-events&WT.mc_id=M365-MVP-5004617)
 * [Post an adaptive card](https://adaptivecards.io/)
 * Using the [Adaptive Cards Universal Action Model](https://learn.microsoft.com/en-us/adaptive-cards/authoring-cards/universal-action-model?WT.mc_id=M365-MVP-5004617)
