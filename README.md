@@ -18,7 +18,7 @@ App result:
 :-------------------------:
 ![Feedback given - Refresh card](assets/FeedbackVotingInAction.gif)
 
-For further details see the author's [blog post](https://mmsharepoint.wordpress.com/2024/)
+For further details see the author's [blog post](https://mmsharepoint.wordpress.com//01/02/meeting-feedback-with-microsoft-teams-meeting-app-and-teams-toolkit-for-visual-studio-c/)
 
 ## Applies to
 
